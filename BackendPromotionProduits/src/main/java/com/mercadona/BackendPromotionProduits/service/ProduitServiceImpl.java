@@ -16,17 +16,17 @@ public class ProduitServiceImpl implements ProduitService {
     private final ProduitRepository produitRepository;
 
     @Override
-    public Produit creer(Produit produit) {
+    public Produit creerProduit(Produit produit) {
         return produitRepository.save(produit);
     }
 
     @Override
-    public List<Produit> lire() {
+    public List<Produit> lireProduit() {
         return produitRepository.findAll();
     }
 
     @Override
-    public Produit modifier(Long id, Produit produit) {
+    public Produit modifierProduit(Long id, Produit produit) {
         return produitRepository.findById(id)
                 .map(p ->{
                     p.setPrixProduit(produit.getPrixProduit());
@@ -38,8 +38,8 @@ public class ProduitServiceImpl implements ProduitService {
     }
 
     @Override
-    public String supprimer(Long id) {
+    public String supprimerProduit(Long id) {
         produitRepository.deleteById(id);
-        return "Produit Supprimé";
+        return "le Produit est Supprimé";
     }
 }

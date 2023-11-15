@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/mercadona")
 @AllArgsConstructor
 public class ProduitController {
 

@@ -17,22 +17,22 @@ public class ProduitController {
 
     @PostMapping("/create")
     public Produit create(@RequestBody Produit produit){
-        return produitService.creer(produit);
+        return produitService.creerProduit(produit);
     }
 
     @GetMapping("/read")
     public List<Produit> read(){
-        return produitService.lire();
+        return produitService.lireProduit();
     }
 
     @PutMapping("/update/{id}")
     public Produit update(@PathVariable Long id, @RequestBody Produit produit){
-        return produitService.modifier(id,produit);
+        return produitService.modifierProduit(id,produit);
     }
 
     @DeleteMapping("/delete")
     public  String delete(@PathVariable Long id){
-        return produitService.supprimer(id);
+        return produitService.supprimerProduit(id);
 
     }
 }

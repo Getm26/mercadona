@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface ProduitService {
 
-    Produit creer(Produit produit);
+    Produit creerProduit(Produit produit);
 
-    List<Produit> lire();
+    List<Produit> lireProduit();
 
-    Produit modifier(Long id, Produit produit);
+    Produit modifierProduit(Long id, Produit produit);
 
-    String supprimer(Long id);
+    String supprimerProduit(Long id);
 
 }

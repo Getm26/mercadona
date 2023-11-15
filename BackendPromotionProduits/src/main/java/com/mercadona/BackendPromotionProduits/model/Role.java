@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -15,6 +18,13 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "LIBELLE_CATEGORIE")
-    private String libelleCategorie;
+    @ManyToMany
+    @JoinTable(name = "produit_role",
+            joinColumns = @JoinColumn(name = "idRole"),
+            inverseJoinColumns = @JoinColumn(name = "idProduit")
+    )
+    private List<Produit> produits = new ArrayList<>();
+
+    @Column(name = "ROLE")
+    private String roleName;
 }

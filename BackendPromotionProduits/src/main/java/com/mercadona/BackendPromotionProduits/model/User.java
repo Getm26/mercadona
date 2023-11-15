@@ -5,12 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-    @Getter
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
     @Setter
     @NoArgsConstructor
     @Entity
     @Table(name = "UTILISATEURS")
     public class User {
+
+        @ManyToMany
+        @JoinTable(name = "user_role",
+                joinColumns = @JoinColumn(name = "idUser"),
+                inverseJoinColumns = @JoinColumn(name = "idRole")
+        )
+        private List<Role> roles = new ArrayList<>();
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +29,5 @@ import lombok.Setter;
         private String username;
         @Column(name = "PASSWORD")
         private String password;
-        @Column(name = "ROLE")
-        private String role;
-
     }
 
